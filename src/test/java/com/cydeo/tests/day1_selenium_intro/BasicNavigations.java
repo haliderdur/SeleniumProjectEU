@@ -14,6 +14,9 @@ public class BasicNavigations {
         // Create instance of Selenium WebDriver - This is the line openning an empty browser
         WebDriver driver = new ChromeDriver();
 
+        // to maximize browser window
+        driver.manage().window().maximize();
+
         // Go to "tesla.com"
         driver.get("https://www.tesla.com");
 
@@ -54,6 +57,17 @@ public class BasicNavigations {
         // to get current URL
         currentURL = driver.getCurrentUrl();
         System.out.println("Current URL = " + currentURL);
+
+
+
+
+
+
+        // to close the current oppened window
+        driver.close();
+
+        // to close all the oppened windows - after quit() method, we can not execute any other line of codes
+        driver.quit();
 
 
     }
