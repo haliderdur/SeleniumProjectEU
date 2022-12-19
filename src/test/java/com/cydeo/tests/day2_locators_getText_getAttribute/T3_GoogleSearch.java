@@ -29,9 +29,9 @@ public class T3_GoogleSearch {
         //3- Write “apple” in search box
         //4- Click google search button
         WebElement searchBox = driver.findElement(By.name("q"));
-        searchBox.click();
+        searchBox.sendKeys("apple");
 
-        searchBox.;
+
 
 
     }
