@@ -36,7 +36,6 @@ public class T5_getText_getAttribute {
         }
 
 
-
         String expectedFirstNamePlaceHolderAttribute = "first name";
         WebElement FirstNamePlaceHolderAttribute = driver.findElement(By.name("firstname"));
         String actualFirstNamePlaceHolderAttribute = FirstNamePlaceHolderAttribute.getAttribute("placeholder");
