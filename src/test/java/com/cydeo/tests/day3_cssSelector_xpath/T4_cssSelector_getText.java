@@ -1,5 +1,8 @@
 package com.cydeo.tests.day3_cssSelector_xpath;
 
+// cssSelector syntax = tagName[attribute='value']
+// By.cssSelector("tagName[attribute='value']")
+
 //TC #4: NextBaseCRM, locators, getText(), getAttribute() practice
 
 import com.cydeo.utilities.WebDriverFactory;
