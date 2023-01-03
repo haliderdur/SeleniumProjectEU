@@ -72,5 +72,6 @@ public class T1_xPath_cssSelector_practice {
         System.out.println("retrievePasswordButton_ex4.isDisplayed() = " + retrievePasswordButton_ex4.isDisplayed());
         System.out.println("poweredByCydeoText_ex1.isDisplayed() = " + poweredByCydeoText_ex1.isDisplayed());
 
+        driver.close();
     }
 }
