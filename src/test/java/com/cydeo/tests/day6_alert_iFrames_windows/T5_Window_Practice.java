@@ -70,6 +70,9 @@ public class T5_Window_Practice {
 
         System.out.println("Actual title after click: " + actualTitle);
 
+        // to go main page, we can use already stored main handle
+        // driver.switchTo().window(mainHandle);
+
     }
 
 }
