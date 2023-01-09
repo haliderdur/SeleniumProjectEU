@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class T5_Window_Practice {
@@ -54,7 +54,8 @@ public class T5_Window_Practice {
 
 
         //6. Switch to new Window.
-        for (String each : driver.getWindowHandles()) {
+        Set<String> allWindowHandles = driver.getWindowHandles();
+        for (String each : allWindowHandles) {
 
             driver.switchTo().window(each);
             System.out.println("Current title while switching windows: " + driver.getTitle());
