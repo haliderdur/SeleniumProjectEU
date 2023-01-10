@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression Suite">
+    <test name="Selenium Test">
+        <classes>
+            <class name="com.cydeo.tests.day5_testNG_intro_dropdowns.TestNG_Selenium"/>
+        </classes>
+    </test>
+
+    <test name="TestNG Intro">
+        <classes>
+            <class name="com.cydeo.tests.day5_testNG_intro_dropdowns.TestNG_Intro"/>
+            <class name="com.cydeo.tests.day6_alert_iFrames_windows.T6_DataProvider"/>
+        </classes>
+    </test>
+
+    <test name="Alert/iFrame Practise package">
+        <packages>
+            <package name="com.cydeo.tests.day6_alert_iFrames_windows"></package>
+        </packages>
+    </test>
+</suite>
