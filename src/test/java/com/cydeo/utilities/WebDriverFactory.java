@@ -3,7 +3,7 @@ package com.cydeo.utilities;
 // TASk: NEW METHOD CREATION
 // Method name : getDriver
 // Static method
-// Accepts String arg: browserType
+// Accepts String arg: browserName
 //  - This arg will determine what type of browser is opened
 //  - if "chrome" passed --> it will open chrome browser
 //  - if "firefox" passed --> it will open firefox browser
@@ -16,18 +16,36 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverFactory {
 
-    public static WebDriver getDriver(String browserType) {
+    public static WebDriver getDriver(String browserName) {
 
-        if (browserType.equalsIgnoreCase("chrome")) {
+        WebDriver driver;
+/*
+        switch (browserName.toLowerCase()) {
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+                break;
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+            default:
+                System.out.println("Given browser type does not exist or does not supported: " + browserName);
+                driver = null;
+        }
+        driver.manage().window().maximize();
+        
+ */
+
+        if (browserName.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             return new ChromeDriver();
 
-        } else if (browserType.equalsIgnoreCase("firefox")) {
+        } else if (browserName.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             return new FirefoxDriver();
 
         } else {
-            System.out.println("Given browser type does not exist or does not supported: " + browserType);
+            System.out.println("Given browser type does not exist or does not supported: " + browserName);
             System.out.println("Driver = null");
             return null;
         }
