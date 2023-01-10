@@ -73,6 +73,8 @@ public class T5_Window_Practice {
         // to go main page, we can use already stored main handle
         // driver.switchTo().window(mainHandle);
 
+        driver.quit();
+
     }
 
 }
