@@ -68,6 +68,13 @@ public class T1_WebTable_Order_Verify {
 
     }
 
+    @Test
+    public void test3() {
+
+        WebTableUtils.orderVerify(driver, "Robert Baratheon", "12/04/2021");
+
+
+    }
 
 
 }
