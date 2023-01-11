@@ -40,7 +40,6 @@ public class T1_windowHandling {
         ((JavascriptExecutor) driver).executeScript("window.open('https://etsy.com','_blank');");
         ((JavascriptExecutor) driver).executeScript("window.open('https://google.com','_blank');");
 
-
         Set<String> allWindowHandles = driver.getWindowHandles();
 
         for (String each : allWindowHandles) {
@@ -55,15 +54,12 @@ public class T1_windowHandling {
             }
         }
 
-
         //5. Assert: Title contains “Etsy”
         String expectedInTitle = "Etsy";
         String actualTitle = driver.getTitle();
 
         Assert.assertTrue(actualTitle.contains(expectedInTitle));
 
-
     }
-
 
 }
