@@ -20,6 +20,14 @@ public class Reading_Properties {
         properties.load(file);
 
         // 4-Use "properties" object to read value
-        properties.getProperty("browser");
+        String browserProperty = properties.getProperty("browser");
+        String usernameProperty = properties.getProperty("username");
+        String environmentProperty = properties.getProperty("environment");
+
+        System.out.println("browserProperty = " + browserProperty);
+        System.out.println("usernameProperty = " + usernameProperty);
+        System.out.println("environmentProperty = " + environmentProperty);
+
+
     }
 }
