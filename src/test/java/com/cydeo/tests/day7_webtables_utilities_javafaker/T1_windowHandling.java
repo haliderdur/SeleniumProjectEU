@@ -16,7 +16,7 @@ public class T1_windowHandling {
     WebDriver driver;
 
     @BeforeMethod
-    public void setup() {
+    public void setupMethod() {
         //1. Create new test and make set ups
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
