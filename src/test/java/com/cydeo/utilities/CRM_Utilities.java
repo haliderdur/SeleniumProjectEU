@@ -14,7 +14,7 @@ public class CRM_Utilities {
         /*
         Credentials:
             helpdesk1@cybertekschool.com  UserUser
-            Helpdesk2@cybertekschool.com  UserUser
+            helpdesk2@cybertekschool.com  UserUser
          */
 
         //3. Enter valid username
@@ -34,7 +34,7 @@ public class CRM_Utilities {
         /*
         Credentials:
             helpdesk1@cybertekschool.com  UserUser
-            Helpdesk2@cybertekschool.com  UserUser
+            helpdesk2@cybertekschool.com  UserUser
          */
         //3. Enter valid username
         WebElement inputUserName = driver.findElement(By.xpath("//input[@name='USER_LOGIN']"));

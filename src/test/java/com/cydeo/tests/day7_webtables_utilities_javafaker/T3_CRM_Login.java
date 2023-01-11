@@ -64,4 +64,17 @@ public class T3_CRM_Login {
         //Expected: My tasks
         BrowserUtils.verifyTitle(driver, "My tasks");
     }
+
+    @Test
+    public void crm_login_test_3() {
+        //2. Go to : https://login1.nextbasecrm.com/
+        driver.get("https://login1.nextbasecrm.com/");
+
+        // Calling utility method to login helpdesk2
+        CRM_Utilities.crm_login(driver, "helpdesk2@cybertekschool.com", "UserUser");
+
+        //6. Verify title is as expected:
+        //Expected: (1) Portal
+        BrowserUtils.verifyTitle(driver, "(1) Portal");
+    }
 }
