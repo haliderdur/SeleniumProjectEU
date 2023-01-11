@@ -6,6 +6,7 @@ import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -22,6 +23,11 @@ public class T3_CRM_Login {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
+    }
+
+    @AfterMethod
+    public void tearDownMethod() {
+        driver.quit();
     }
 
     @Test
@@ -73,6 +79,7 @@ public class T3_CRM_Login {
         // Calling utility method to login helpdesk2
         CRM_Utilities.crm_login(driver, "helpdesk2@cybertekschool.com", "UserUser");
 
+        BrowserUtils.sleep(1);
         //6. Verify title is as expected:
         //Expected: (1) Portal
         BrowserUtils.verifyTitle(driver, "(1) Portal");
