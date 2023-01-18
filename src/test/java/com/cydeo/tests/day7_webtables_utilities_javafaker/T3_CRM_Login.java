@@ -1,5 +1,6 @@
 package com.cydeo.tests.day7_webtables_utilities_javafaker;
 
+import com.cydeo.base.TestBase;
 import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.CRM_Utilities;
 import com.cydeo.utilities.WebDriverFactory;
@@ -12,9 +13,8 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class T3_CRM_Login {
+public class T3_CRM_Login extends TestBase {
 
-    WebDriver driver;
 
     @BeforeMethod
     public void setupMethod() {
