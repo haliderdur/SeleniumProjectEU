@@ -15,21 +15,6 @@ import java.util.concurrent.TimeUnit;
 
 public class T3_CRM_Login extends TestBase {
 
-
-    @BeforeMethod
-    public void setupMethod() {
-        //1. Create new test and make set ups
-        driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-    }
-
-    @AfterMethod
-    public void tearDownMethod() {
-        driver.quit();
-    }
-
     @Test
     public void crm_login_test() {
         //2. Go to : https://login1.nextbasecrm.com/
