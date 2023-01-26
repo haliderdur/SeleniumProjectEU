@@ -43,23 +43,16 @@ public class PolymerTask {
         inputBox.sendKeys("4 bananas", Keys.ENTER);
         inputBox.sendKeys("3 apples", Keys.ENTER);
 
-        // locate second item destroy button and click
-        WebElement destroyBtn = driver.findElement(By.xpath("(//button[@class='destroy style-scope td-item'])[2]"));
-        destroyBtn.click();
-
-        // update second item
-        inputBox.sendKeys("6 lemons", Keys.ENTER);
-/*
-        Actions action = new Actions(driver);
+        // locate second item and it's destroy button
         WebElement secondItem = driver.findElement(By.xpath("(//div[@class='style-scope td-item'])[2]"));
+        WebElement secondItemDestroyBtn = driver.findElement(By.xpath("(//button[@class='destroy style-scope td-item'])[2]"));
 
-        action.doubleClick(secondItem).perform();
-        secondItem.clear();
+        // click on destroy button
+        Actions action = new Actions(driver);
+        action.moveToElement(secondItem).click(secondItemDestroyBtn).perform();
 
-        secondItem.sendKeys("6 lemons", Keys.ENTER);
-        // action.sendKeys(secondItem, "6 lemons", Keys.ENTER);
-*/
-
+        // add new second item
+        inputBox.sendKeys("6 lemons", Keys.ENTER);
     }
 
     @AfterMethod
