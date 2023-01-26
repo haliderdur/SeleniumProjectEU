@@ -25,9 +25,8 @@ public class T3_Scroll_Actions_Practice {
         action.moveToElement(powereByCydeoText).perform();
 
         //2- Scroll back up to “Home” link using PageUP button
-        for (int i = 0; i < 4; i++) {
-            action.sendKeys(Keys.PAGE_UP).build().perform();
-        }
+        action.sendKeys(Keys.PAGE_UP, Keys.PAGE_UP, Keys.PAGE_UP).perform();
+
     }
 
 }
