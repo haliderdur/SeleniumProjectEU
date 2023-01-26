@@ -41,6 +41,7 @@ public class PolymerTask {
         WebElement inputBox = driver.findElement(By.xpath("//input[@id='new-todo']"));
         inputBox.sendKeys("4 bananas", Keys.ENTER);
         inputBox.sendKeys("3 apples", Keys.ENTER);
+        Thread.sleep(2000);
 
         // locate second item and it's destroy button
         WebElement secondItem = driver.findElement(By.xpath("(//div[@class='style-scope td-item'])[2]"));
@@ -52,6 +53,7 @@ public class PolymerTask {
 
         // add new second item
         inputBox.sendKeys("6 lemons", Keys.ENTER);
+        Thread.sleep(2000);
     }
 
     @AfterMethod
