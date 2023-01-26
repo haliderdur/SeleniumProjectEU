@@ -49,7 +49,16 @@ public class PolymerTask {
 
         // update second item
         inputBox.sendKeys("6 lemons", Keys.ENTER);
+/*
+        Actions action = new Actions(driver);
+        WebElement secondItem = driver.findElement(By.xpath("(//div[@class='style-scope td-item'])[2]"));
 
+        action.doubleClick(secondItem).perform();
+        secondItem.clear();
+
+        secondItem.sendKeys("6 lemons", Keys.ENTER);
+        // action.sendKeys(secondItem, "6 lemons", Keys.ENTER);
+*/
 
     }
 
