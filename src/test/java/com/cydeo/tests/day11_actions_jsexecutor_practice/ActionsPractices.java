@@ -28,5 +28,7 @@ public class ActionsPractices {
         //2- Scroll back up to “Home” link using Home button
         act.sendKeys(Keys.HOME).perform();
 
+        Driver.closeDriver();
+
     }
 }
