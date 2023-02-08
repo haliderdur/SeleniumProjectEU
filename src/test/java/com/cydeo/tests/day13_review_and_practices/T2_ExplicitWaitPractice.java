@@ -1,6 +1,7 @@
 package com.cydeo.tests.day13_review_and_practices;
 
 import com.cydeo.pages.DynamicControlsPage;
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Driver;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -30,13 +31,13 @@ public class T2_ExplicitWaitPractice {
         //3- Click to “Remove” button
         dynamicControlsPage.removeButton.click();
 
-        // turning of implicit wait to expedite selenium webDriver(we have explicit wait below)
-        // its default turned on in Driver utility class
-        Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
         //4- Wait until “loading bar disappears”
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
-        wait.until(ExpectedConditions.invisibilityOf(dynamicControlsPage.loadingBar));
+//        Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+//        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+//        wait.until(ExpectedConditions.invisibilityOf(dynamicControlsPage.loadingBar));
+
+        BrowserUtils.waitForInvisibilityOf(dynamicControlsPage.loadingBar);
 
         //5- Verify:
         //a. Checkbox is not displayed
