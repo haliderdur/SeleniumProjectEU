@@ -51,4 +51,26 @@ public class T2_ExplicitWaitPractice {
         //b. “It’s gone!” message is displayed.
         Assert.assertTrue(dynamicControlsPage.goneMessage.isDisplayed());
     }
+
+    @Test
+    public void enableButton_test() {
+        //TC #3: Explicit wait practice
+        //1- Open a chrome browser
+        //2- Go to: https://practice.cydeo.com/dynamic_controls
+        Driver.getDriver().get("https://practice.cydeo.com/dynamic_controls");
+
+        //3- Click to “Enable” button
+        dynamicControlsPage.enableButton.click();
+
+        //4- Wait until “loading bar disappears”
+        //WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        //wait.until(ExpectedConditions.invisibilityOf(dynamicControlsPage.loadingBar));
+        BrowserUtils.waitForInvisibilityOf(dynamicControlsPage.loadingBar);
+
+        //5- Verify:
+        //a. Input box is enabled.
+        //b. “It’s enabled!” message is displayed.
+        Assert.assertTrue(dynamicControlsPage.inputBox.isEnabled());
+        Assert.assertTrue(dynamicControlsPage.enableMessage.isDisplayed());
+    }
 }
