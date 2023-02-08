@@ -9,6 +9,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.concurrent.TimeUnit;
+
 public class T2_ExplicitWaitPractice {
 
     DynamicControlsPage dynamicControlsPage;
@@ -27,6 +29,10 @@ public class T2_ExplicitWaitPractice {
 
         //3- Click to “Remove” button
         dynamicControlsPage.removeButton.click();
+
+        // turning of implicit wait to expedite selenium webDriver(we have explicit wait below)
+        // its default turned on in Driver utility class
+        Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
         //4- Wait until “loading bar disappears”
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
