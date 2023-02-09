@@ -1,0 +1,331 @@
+Today's schedule:
+    #1- Review
+    #2- Task1
+    #3- Create utility class
+    #4- Task2
+    #5- .isDisplayed()
+    #6- cssSelector
+    #7- xpath
+
+------------------------------------------------------------
+
+- What is maven?
+- Maven is build automation tool.
+
+- What is build?
+- Repeated steps when creating the project and also managing the project.
+- such as; creating the folder structure, adding dependencies, managing dependencies, compiling, deploying...
+
+- Is maven for testers? Was it created for testers?
+- No. It is a developer tool. We use it to take advantage of some of its functionalities.
+
+- Is maven the only "build automation tool" out there?
+- No. Ant, Gradle
+
+- .findElement(By.locator("STRING"))
+
+- What does it do?
+- Finds and returns a single web element.
+
+- What does it accept as argument?
+- It accepts locator parameter as String.
+
+- What is the return type?
+- WebElement type: comes from Selenium library.
+
+- What kind of exception does it throw?
+- It will throw NoSuchElementException if it cannot somehow find given web element.
+
+- What happens when exception is thrown in Selenium code execution? Is it going to execute the rest of the lines?
+- Once it throws the exception, the rest of the lines will not be executed UNLESS we handle it.
+
+- When do we have NoSuchElementException?
+#1- Wrong locator provided
+#2- Synchronization: when browser driver and browser are not on the same page, driver will try to find a web element that is not loaded yet. If this happens, it will throw NoSuchElementException.
+
+- .click();
+- What does it do?
+- It clicks to the given web element.
+
+- Does it accept argument?
+- No.
+
+- Does it work just by itself --> driver.click();
+- driver.findElement(locator).click();
+
+
+- .sendKeys();
+- What does it do?
+- It will pass the provided string into given WebElement.
+
+- Does it accept argument?
+- Yes. It accepts String argument.
+- We can pass Keys. commands into sendKeys() method as well.
+
+- Keys.ENTER:
+- This piece of code will imitate user pressing ENTER from keyboard.
+
+LOCATORS:
+
+- How many total locators we have?
+- Selenium has total of 8 locators.
+
+- id
+- name
+- className
+- linkText
+- partialLinkText
+- tagName
+
+- cssSelector
+- xpath
+
+
+<a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+
+
+1- id:
+    - It will find and return the web element that has matching id attribute value
+    - "id" is always unique.
+
+ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+
+syntax: driver.findElement(By.id("bb22"))
+
+2- name:
+    - It will find and return the web element that has matching name attribute value
+    - "name" is NOT always unique
+
+ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+syntax: driver.findElement(By.name("uh68"))
+
+3- className:
+    - It will find and return the web element that has matching class attribute value
+    - "class" is NOT always unique
+
+ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+syntax: driver.findElement(By.className("ff58"))
+
+
+4- linkText:
+    - It will look through all of the LINKS in the HTML page and return FIRST matching result.
+    - It ONLY ONLY ONLY works with links (<a> tags)
+    - It works similar to .equals method in java.
+    - It is looking for exact String match.
+
+ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+syntax: driver.findElement(By.linkText("TESLA CYBERTRUCK"));
+
+5- partialLinkText
+    - It will look through all of the LINKS in the HTML page and return FIRST matching result.
+    - It ONLY ONLY ONLY works with links (<a> tags)
+    - It works similar to .contains method in java.
+    - It is looking for PARTIAL String match.
+
+ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+syntax1: driver.findElement(By.partialLinkText("TESLA CYBERTRUCK"));
+syntax2: driver.findElement(By.partialLinkText("CYBERTRUCK"));
+syntax3: driver.findElement(By.partialLinkText("TESLA"));
+syntax4: driver.findElement(By.partialLinkText("ESLA"));
+
+6- tagName:
+- This locator locates using given TAG NAME.
+- We literally pass the TAG name as String parameter.
+- It will find and return first matching result.
+
+ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+syntax1: driver.findElement(By.tagName("a"));
+
+- What happens if we provide name,class attribute value and there is more than 1 result?
+- It will find and return the first matching result.
+
+- .getText();
+- What does it do?
+- It will get the content from in between the opening tag and closing tag
+
+- What is the return type?
+- String
+
+- Does it accept any argument?
+- No.
+
+syntax: We cannot say driver.getText();
+- driver.findElement(locator).getText(); --> it will return the text of given web element
+
+ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+
+syntax: driver.findElement(By.name("uh68")).getText() --> TESLA CYBERTRUCK
+
+- .getAttribute();
+- What does it do?
+- It will accept an attribute and return its value.
+- It accepts a String argument
+- Return type is String
+
+ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+
+syntax: driver.findElement(By.name("uh68")).getAttribute("href")     --> https://tesla.com
+syntax: driver.findElement(By.name("uh68")).getAttribute("name")     --> uh68
+syntax: driver.findElement(By.name("uh68")).getAttribute("class")     --> ff58
+syntax: driver.findElement(By.name("uh68")).getAttribute("id")         --> bb22
+
+
+-----------------------------------------------------------------------------
+
+- .isDisplayed():
+
+- What does it do?
+- It returns boolean value on a given web element.
+
+- If web element is displayed, it will return "true"
+- If web element is not displayed, it will return "false"
+
+- It does not accept any argument.
+
+- syntax: driver.findElement(locator).isDisplayed(); --> true, if displayed
+- syntax: driver.findElement(locator).isDisplayed(); --> false, if not displayed
+
+-----------------------------------------------------------------------------
+
+- cssSelector locator:
+    - cssSelector is one of 8 locators from Selenium library.
+    - cssSelector allows us to create custom locators.
+    - we are able to locate web elements with any attribute value.
+    - we are not just limited to name, id, className
+    - we can use any custom attribute we see on a web element
+
+    syntax#1: tagName[attribute='value']
+    syntax#1: tagName[attribute="value"]
+
+ex:    <label class="login-item-checkbox-label" for="USER_REMEMBER">Remember me on this computer</label>
+
+cssSelector practice #1- Locate "label" using "class" attribute
+
+    tagName[attribute='value']
+
+    label[class='login-item-checkbox-label']
+
+
+cssSelector practice #2- Locate "label" using "for" attribute
+
+    tagName[attribute='value']
+
+    label[for='USER_REMEMBER']
+
+
+
+ex#2: ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+
+#1- locate above link using cssSelector, using name:
+
+    tagName[attribute='value']
+    a[name='uh68']
+
+#2- locate above link using cssSelector, using id:
+
+    a[id='bb22']
+
+#3- locate above link using cssSelector, using class:
+
+    a[class='ff58']
+
+#4- locate above link using cssSelector, using href:
+
+    a[href='https://tesla.com']
+
+
+- cssSelector has another syntax, but it works with id and class attributes only.
+
+- . stands for class attribute
+- # stands for id attribute
+
+syntax#2:
+
+    tagName.classValue
+    tagName#idValue
+
+
+ex#3: ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+
+    tagName.classValue ---> a.ff58
+
+    tagName#idValue --> a#bb22
+
+-----------------------------------------------------------------------------
+
+- XPATH LOCATORS
+    - xpath is one of 8 locators of Selenium
+    - xpath allows us to create custom locators using provided attributes and their values
+    - we can also use the text of the provided web element to create locators
+
+    - XPATH has 2 different types
+
+Interview question: What is the difference between absolute xpath and relative xpath?
+
+#1- ABSOLUTE XPATH:
+    - Absolute xpath starts with single slash "/"
+    - It starts looking in html from the root/parent element : html element
+    - It starts from html tag, and it goes down 1 by 1 until we reach to the web element we are looking for
+    - This is not good way of locating a web element.
+    - It will break with any minimal change in the html code.
+
+    /html/body/table/tbody/tr[2]/td/div/div/form/div[4]/button
+
+#2- RELATIVE XPATH
+    - Relative xpath starts with double slash "//"
+    - "//" means you can start from anywhere in the HTML code
+    - Since we are allowed to start from anywhere in the HTML code, relative xpath is very dependable
+    - We will use relative xpath, not absolute xpath
+    - The only time your relative xpath is breaking (not working) is when/if the developer is specifically changing the attribute value we used
+
+
+--> MAIN SYNTAX: //tagName[@attribute='value']
+
+
+ex: <a href="https://tesla.com" name="uh68" class="ff58" id="bb22"> TESLA CYBERTRUCK </a>
+
+
+-->             //tagName[@attribute='value']
+
+- locate above <a> tag using relative xpath locator with different attributes.
+
+    - using name attribute         : //a[@name='uh68']
+    - using class attribute     : //a[@class='ff58']
+    - using id attribute         : //a[@id='bb22']
+
+
+COMMONLY USED XPATH SYNTAX:
+
+#1- //tagName[@attribute='value']
+#2- //tagName[contains(@attribute, 'value')]
+#3- //tagName[.='text']  same as //tagName[text()='text']
+#4- //*[@attribute='value']
+
+
+EXPLANATIONS:
+#1- //tagName[@attribute='value']
+
+    We are saying, get me the given tag with provided attribute and value
+
+#2- //tagName[contains(@attribute, 'value')]
+
+    We are saying, get me the given tag that has the attribute which contains the value in the locator
+
+    Looks for the tagName that has matching or containing attribute value
+
+#3- //tagName[.='text']
+
+    This locator will return the web element with given text
+
+#4- //*[@attribute='value']
+
+    We are saying, we do not care about which tagName, return us the web element with matching attribute and value result
+
+
+ chro path'
+ chrome developer tool : right click > copy > copy selector --> cssSelector
+ chrome developer tool : right click > copy > copy xpath --> relative xpath
+ chrome developer tool : right click > copy > copy full xpath --> absolute xpath
+
+
+- I do not suggest using any tools unless for just seeing example purpose.

@@ -1,0 +1,205 @@
+TODAY'S SCHEDULE:
+    - REVIEW
+    - TASK SOLUTION
+    - findElement()
+    - Locators
+        - linkText
+        - partialLinkText
+        - name
+        - id
+        - className
+        - tagName
+
+    - getText()
+    - getAttribute()
+
+------------------------------------------------------------------------------
+
+- What is Selenium?
+    - Basically Selenium is a bunch of jar files that allows us to automate browsers.
+    - In simple terms, selenium is bunch of jar files (libraries)
+    - We use these jar files to automate browsers
+
+
+- What is Maven?
+    - Maven is a build automation tool.
+    - Maven projects come with certain folder structure and pom.xml file
+
+- What is a build?
+    - Build is repeating steps when creating the projects
+    - Build also includes the repeating steps when managing the project as well.
+
+    -src
+        - main
+        - test
+    - pom.xml
+
+- What is pom.xml file?
+    - It is short for "project object model".
+    - pom.xml file is the most important file in a maven project.
+    - We manage (add, remove, change version of) our dependencies.
+
+- Is Maven for tester?
+    - No. Maven is a tool created for developers.
+    - As testers (SDETs) we will take advantage of some of its functionality.
+
+
+- What version of Selenium we are using?
+    - 3.141.59
+
+- What version of WebDriverManager we are using?
+    - 5.0.3
+
+- If the developers are using both main and test folders, which folder the testers use?
+    - Testers and developers are not working on the same project.
+    - As SDET you will not have access to the source code.
+
+- What is a dependency?
+    - Dependencies are just jar files.
+    - We add to pom.xml file and maven automatically downloads the version of the dependency we provide.
+
+- Where do we get our expected data?
+    - Requirement documents.
+
+- Where do we get the actual data?
+    - Comes from the browser. When we do our testing, we get actual data from browser.
+
+------------------------------------------------------------------
+
+- To be able to do any action on any web element, there are certain steps we have to follow.
+
+    #1- We have to locate the web element we want to work on.
+    #2- To locate we have to use a set of methods coming from Selenium library.
+        - findElement()
+        - locator methods
+    #3- We decide what action we want to apply, find the method, and use it on the already located web element.
+        - click
+
+
+Selenium methods:
+    #1- What does the method do?
+    #2- Does it accept any argument?
+    #3- Does it have a return type?
+    #4- Does it throw any certain exception?
+
+- .findElement(LOCATOR) method:
+    1- This method finds and returns SINGLE web element.
+    2- It accepts a locator argument, and finds the requested web element using locator.
+    3- Return type: WebElement type (comes from Selenium library)
+    4- Yes. It will throw "NoSuchElementException"
+        - if you provide a wrong locator
+        - if your page does not load as fast as it should
+
+.sendKeys("string to be sent");
+    - this method is used to send text using Selenium WebDriver
+    - it accepts a string argument
+    - takes the String, and passes it into the web element as a String.
+
+- What is a locator?
+    - Locators help us locate web elements using Selenium WebDriver.
+    - Locators are basically 8 methods coming from Selenium library.
+
+    - There are total of 8 locators.
+    - We will learn first 6 today.
+
+
+
+#1- linkText:
+    - linkText locator will look through the TEXTS OF all of the links in the page, and return the matching link.
+    - It accepts a string as the text of the link we are trying to locate
+    - This locator will ONLY ONLY ONLY works on links. <a> tags only.
+    - This method looks for EXACT text match.
+    - It is similar to .equals method coming from JAVA.
+    - It will search through HTML code and return first matching result.
+
+    ex: <a href="https://something.com"> GOOGLE SEARCH </a>
+
+    syntax: driver.findElement(By.linkText("GOOGLE SEARCH"));
+
+#2- partialLinkText:
+    - linkText locator will look through the TEXTS OF all of the links in the page, and return the PARTIAL matching link.
+    - It accepts a string as the text of the link we are trying to locate
+    - This locator will ONLY ONLY ONLY works on links. <a> tags only.
+    - This method looks for PARTIAL text match.
+    - It is similar to .CONTAINS method coming from JAVA.
+    - It will search through HTML code and return first matching result.
+
+
+    ex: <a href="https://something.com"> GOOGLE SEARCH </a>
+
+    syntax1: driver.findElement(By.partialLinkText("GOOGLE"));
+    syntax2: driver.findElement(By.partialLinkText("SEARCH"));
+    syntax3: driver.findElement(By.partialLinkText("GOOGLE SEARCH"));
+
+    All 3 syntaxes returns same web element.
+
+#3  name:
+    - it uses "name" attribute's value to locate web elements.
+    - it will go through HTML code and find matching "name" attribute value, and return the first matching web element
+    - name does not have to be unique. So use whenever possible.
+
+    <div name="hu58"> </div>
+
+    syntax: driver.findElement(By.name("hu58"));
+
+#4     id:
+    - it uses "id" attribute's value to locate web elements.
+    - it will go through HTML code and find matching "id" attribute value, and return the web element
+    - id HAS TO BE UNIQUE.
+    - id attribute's value will always be unique.
+
+    <div name="hu58" id="asdf57"> </div>
+
+    syntax: driver.findElement(By.id("asdf57"));
+
+#5    className:
+    - it uses "class" attribute's value to locate web elements.
+    - it will go through HTML code and find matching "class" attribute value, and return the first matching web element.
+    - class attribute's value does not have to be unique.
+
+    <div name="hu58" id="asdf57" class="cde45"> </div>
+
+    syntax: driver.findElement(By.className("cde45"));
+
+
+#6  tagName:
+    - it will find and return the first matching tag provided.
+    - this locator does not have many use cases unless either the page is very simple page, or we are trying to get a group of web elements using findElementS method
+
+    <div name="hu58" id="asdf57" class="cde45"> </div>
+
+    syntax: driver.findElement(By.tagName("div"));
+
+
+--------------------------------------------------------------------------------
+
+- getText():
+    - .getText() method will get the text from in between the opening tag and closing tag
+    - it does not accept any argument
+    - Return type: String
+
+    ex : <a href="https://something.com"> GOOGLE SEARCH </a>
+
+    driver.findElement(By.linkText("GOOGLE SEARCH"));
+        -> returns me the link tag as a web element
+        -> return type is WebElement.
+
+    driver.findElement(By.linkText("GOOGLE SEARCH")).getText();
+        -> this line returns me a String
+
+
+--------------------------------------------------------------------------------
+
+- getAttribute("attributeName");
+    - .getAttribute() method will return the given attribute's value
+    - it accepts a String argument.
+    - return type: String
+    - it will find the matching attribute, and return its value
+
+    ex: <div name="hu58" id="asdf57" class="cde45"> TEXT </div>
+
+    syntax: driver.findElement(By.id("asdf57")); --> this line returns the web element
+
+- driver.findElement(By.id("asdf57")).getAttribute("class") --> cde45
+- driver.findElement(By.id("asdf57")).getAttribute("name") --> hu58
+

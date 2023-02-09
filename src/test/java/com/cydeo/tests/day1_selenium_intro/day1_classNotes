@@ -1,0 +1,231 @@
+
+HTML CLASS REVIEW:
+
+- HTML : Hypertext markup language
+
+- Is HTML a programming language?
+    - No. It is a mark up language.
+
+    - HTML does not have programming logic such as for loops, if conditions, variables.
+
+- What makes a mark up language?
+    - "MARK UP TAGS" create a mark up language.
+
+- Is HTML the only mark up language?
+    - No. We have more than 1 mark up languages.
+
+    ex: XML : extensible markup language
+
+
+- What is a mark up tag?
+    - Markup tags act like containers.
+    - It will change the behavior or display of the content passed into it.
+
+
+- How many types of tags we have?
+    - 2 types of tags.
+
+#1- Paired tags     :
+    - Paired tags have <openingTag> and </closingTag>.
+
+    syntax: <openingTag> CONTENT </closingTag>.
+
+    Ex: p, h, head, body, html, li, div, ul, u, strong, button, select, span, em,
+    a
+
+#2- Unpaired tags     :
+
+    - Unpaired tags have only
+    - There is no closing tag.
+    - That's why it is called self closing tag.
+
+    syntax: </openingTag>
+
+    ex: br, img, hr, input
+
+
+What is an attribute:
+    - Attributes provide additional information about specific web element.
+    - Attributes go inside of the OPENING TAG ONLY.
+    - If it is an unpaired tag/self closing tag it will go inside of the tag itself.
+    - A web element can have as many attributes as needed. Number is not limited.
+
+ex:
+    <div style="color:red;"> content </div>
+
+    <img src="cyberTruckimage.png">
+
+
+PRACTICE:
+    <a href="https://www.etsy.com"> ETSY - SELL YOUR COOKIES </a>
+
+#1- WHAT IS THE TEXT OF THIS TAG? WHAT IS THE CONTENT, WHAT IS DISPLAYED ON THE PAGE?
+
+    - "ETSY - SELL YOUR COOKIES"
+
+#2- WHAT IS THE ATTRIBUTE OF THIS WEB ELEMENT?
+    - href is the attribute of this web element
+
+#3- WHAT IS THE ATTRIBUTE VALUE OF HREF?
+    - https://www.etsy.com
+
+#4- WHAT IS THE TYPE OF THIS TAG?
+    - Anchor tag, <a> tag, link tag
+
+TELLING WHAT IS WHAT FROM THE COLORS:
+    - PURPLE    : TAG NAME
+    - ORANGE    : ATTRIBUTE NAME
+    - BLUE         : ATTRIBUTE VALUE
+    - BLACK        : TEXT (DISPLAYED ON THE PAGE)
+
+- WHAT IS A WEB ELEMENT?
+    - Every single thing we see on the page is a web element of its own.
+    - Such as: links, buttons, input boxes, images, headers
+
+- input tag:
+    - input tags are used to let user enter some form of input.
+    - the type of the input accepted from user is determined by the value we pass into "type" attribute.
+
+    syntax:
+        <input type="text">
+
+            --> to accept text from user
+
+        <input type="password">
+            --> to accept text from user,
+            --> the text will be hidded as password
+
+        <input type="button">
+            --> to create button on the page
+
+        <input type="checkbox">
+            --> to create checkbox on the page
+
+        <input type="radio">
+            --> to create radio button on the page
+
+
+- select tag:
+    - Allows us to create dropdowns in the HTML page.
+    - By itself it is not enough. We have to use <option> tag to create different options displayed for user.
+
+    syntax:
+        <select>
+            <options> TEXT 1 </options>
+            <options> TEXT 2 </options>
+            <options> TEXT 3 </options>
+        </select>
+
+- If you didn't take quiz, take it in the lunch break of after class. Today is the last day.
+
+- Short videos explanation
+
+--------------------------------------------------------------------
+
+ - Maven project:
+     - Maven is a "build" automation tool
+     - "build" : repeating steps when we are creating a project
+     - Maven project is different than Java project.
+     - Maven is NOT a tool for testers.
+     - It comes with certain type of folder structure and other files.
+
+     - src
+         - main : this is where developers write the source code of the webApp/webPage
+         - test : this is where developers write their unit tests
+     - pom.XML : this file is used to add and manage dependencies of our project
+
+
+     - target : this file is where the maven project is storing the compiled version of the project and some other information.
+     - it will only appear after you run your code.
+     - everything in this folder will be refreshed every time we run our code.
+
+Selenium methods:
+    #1- What does the method do?
+    #2- Does it accept any argument?
+    #3- Does it have a return type?
+    #4- Does it throw any certain exception?
+
+
+- .get("");
+#1- What does the method do?
+    - It gets given URL in an opened browser.
+
+#2- Does it accept any argument?
+    - Yes it does.
+    - It accepts a String argument.
+
+#3- Does it have a return type?
+    - Void return type.
+
+
+- Basic navigations
+
+    driver.navigate() --> navigate methods allows us to do simple navigations
+    driver.navigate().forward () --> will take page to forward page
+    driver.navigate().back() --> will take page to previous page
+    driver.navigate().refresh()--> will refresh the current page
+    driver.navigate().to() --> exactly same as .get() method
+
+- .getTitle();
+
+#1- What does the method do?
+    - It gets the title of the page
+
+#2- Does it accept any argument?
+    - No. It does not accept any argument.
+
+#3- Does it have a return type?
+    - Yes. It returns a String.
+    - It gets the title of the current page, and returns it as a String.
+
+#4- Does it throw any certain exception?
+    - No.
+
+- .getCurrentUrl();
+#1- What does the method do?
+    - Gets the URL of the current page.
+
+#2- Does it accept any argument?
+    - No. It does not accept any argument.
+
+#3- Does it have a return type?
+    - Yes. It returns a String.
+    - Gets the URL of the current page and return as String.
+
+#4- Does it throw any certain exception?
+    - No.
+
+
+- driver.manage().window().maximize();
+    - maximizes the currently opened browser
+    - this effect (maximizing) will happen on the line we call this method
+
+
+- driver.manage().window().fullscreen();
+    - this one sometimes does not work for windows, so better not use it.
+
+Why maximizing the page is important?
+    - Because in different sizes the content displayed will be different.
+    - This happens if the page is "responsive".
+
+    - Responsive means : if size gets smaller, it will display less content.
+        - Maybe it will store some web elements under some hamburger menu, or some other type of menu.
+
+
+- driver.close();
+    - will close only the currently opened browser
+    - if we have more than one window open, it will only close the one that was focused on
+
+- driver.quit();
+    - it kills the current session.
+    - it means if more than one window was opened, everything will be closed.
+    - after using .quit() method, we cannot execute any more line of codes.
+
+    - We will get "NoSuchSessionException"
+
+What is a session?
+    - Every time we run our Selenium code a session is created.
+    - That specific session will continue until we explicitly kill it or code execution comes to end.
+
+
+INTERVIEW QUESTION: Tell me about the common exceptions you are getting when you are using Selenium WebDriver?
